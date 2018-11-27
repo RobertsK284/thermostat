@@ -1,0 +1,67 @@
+<html>
+
+  <head>
+    <title>Thermostat</title>
+    <script src="src/thermostat.js"></script>
+    <script src="src/jquery.js"></script>
+    <script>
+      thermostat = new Thermostat
+
+      // $(document).ready(function() {
+      //           $('.up').click(function() {
+      //               alert('clicked');
+      //           });
+    </script>
+
+  </head>
+
+  <body>
+    <script>
+      window.onload = function() {
+
+        // alert( thermostat.currentEnergyUsage())
+        // alert( thermostat.backgroundColour["low-usage"] )
+      // alert( "welcome" );
+
+    };
+    </script>
+
+    <div id="temperature">
+      temperature here
+    </div>
+
+      <button id="up">Up</button>
+      <button id="down">Down</button>
+      <button id="reset">Reset</button>
+      <button id="PowerSavingMode">Power Saving Mode</button>
+
+    <script>
+
+      displayTemperature = function() {
+        $( "#temperature" ).html(thermostat.temperature())
+        $( "body" ).css( {"background-color": thermostat.backgroundColour[thermostat.currentEnergyUsage()]});
+      }
+
+      $( "#up" ).click(function() {
+        thermostat.up(1);
+        displayTemperature();
+      });
+      $( "#down" ).click(function() {
+        thermostat.down(1);
+        displayTemperature();
+      });
+      $( "#reset" ).click(function() {
+        thermostat.reset();
+        displayTemperature();
+      });
+      $( "#PowerSavingMode" ).click(function() {
+        thermostat.TogglePowerSavingMode();
+        alert("Power Saving Mode is now" + thermostat.powerSavingMode);
+        alert(thermostat.maxTemperature)
+        displayTemperature();
+      });
+
+      </script>
+  </body>
+
+</html>
