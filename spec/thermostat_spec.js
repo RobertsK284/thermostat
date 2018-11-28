@@ -52,7 +52,7 @@ describe('Thermostat', function() {
     thermostat.TogglePowerSavingMode();
     expect(thermostat.powerSavingMode).toEqual(false);
   });
-  it('TogglePowerSavingMode can change PowerSavingMode to false', function() {
+  it('TogglePowerSavingMode can change PowerSavingMode to true', function() {
     thermostat.powerSavingMode = false;
     thermostat.TogglePowerSavingMode();
     expect(thermostat.powerSavingMode).toEqual(true);
