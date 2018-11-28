@@ -23,7 +23,8 @@ describe('Thermostat', function() {
     expect(thermostat.temperature()).toEqual(25);
   });
   it('if powerSavingMode = false, max temperature = 32', function() {
-    thermostat.powerSavingMode = false;
+    thermostat.powerSavingMode = true;
+    thermostat.TogglePowerSavingMode();
     thermostat.up(40);
     expect(thermostat.temperature()).toEqual(32);
   });
@@ -50,6 +51,10 @@ describe('Thermostat', function() {
     thermostat.powerSavingMode = true;
     thermostat.TogglePowerSavingMode();
     expect(thermostat.powerSavingMode).toEqual(false);
-    expect(thermostat.maxTemperature).toEqual(32);
+  });
+  it('TogglePowerSavingMode can change PowerSavingMode to false', function() {
+    thermostat.powerSavingMode = false;
+    thermostat.TogglePowerSavingMode();
+    expect(thermostat.powerSavingMode).toEqual(true);
   });
 });
